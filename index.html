@@ -6,24 +6,23 @@
     <title>Digital Clock</title>
 
     <style>
-        body{       //عشان نعدل علي جسم الصفحه
-
-            margin:0;//يشيل المسافات الافتراضيه حوالين الصفحه
-            height:100vh;//يخلي الصفحه بطول الشاشه كامله
-            display:flex;//عشان نوصل العناصر يشغل النظام
-            justify-content:center;//يوسط  افقيا
-           align-items:center;//راسيا
-            background:black;//لون الخلفيه اسود
-            font-family:Arial;//نوع الخط
+        body{
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:black;
+            font-family:Arial;
         }
 
         .clock{
-            color:#00ff88;//لون الارقام الاخضر
-            font-size:80px;//حجم الخط الكبير
-            border:3px solid #00ff88;//اطار اخضر حول الساعه  
-            padding:30px 50px;//مسافات داخليه حوالين الكلام
-            border-radius:20px;//الحواف مدوره
-            box-shadow:0 0 20px #00ff88;//يعمل اضاه حوالين الساعه
+            color:#00ff88;
+            font-size:80px;
+            border:3px solid #00ff88;
+            padding:30px 50px;
+            border-radius:20px;
+            box-shadow:0 0 20px #00ff88;
         }
     </style>
 </head>
@@ -35,20 +34,20 @@
 
     <script>
 
-        function updateClock(){ //الفانكشن دي وطيفتها تحدث الوقت كل ثانيه
+        function updateClock(){
 
             let now = new Date();
 
-            let hours = now.getHours();//بيجب الساعه
-            let minutes = now.getMinutes();//بيجيب الدقايق
-            let seconds = now.getSeconds();//بيجيب الثواني
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
 
             hours = hours < 10 ? "0" + hours : hours;
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
             let time = hours + ":" + minutes + ":" + seconds;
-//يجمع الوقت كلو ف متغير واحد
+
             document.getElementById("clock").innerHTML = time;
         }
 
