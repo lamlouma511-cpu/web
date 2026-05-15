@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Digital Clock</title>
+
+    <style>
+        body{       //عشان نعدل علي جسم الصفحه
+
+            margin:0;//يشيل المسافات الافتراضيه حوالين الصفحه
+            height:100vh;//يخلي الصفحه بطول الشاشه كامله
+            display:flex;//عشان نوصل العناصر يشغل النظام
+            justify-content:center;//يوسط  افقيا
+           align-items:center;//راسيا
+            background:black;//لون الخلفيه اسود
+            font-family:Arial;//نوع الخط
+        }
+
+        .clock{
+            color:#00ff88;//لون الارقام الاخضر
+            font-size:80px;//حجم الخط الكبير
+            border:3px solid #00ff88;//اطار اخضر حول الساعه  
+            padding:30px 50px;//مسافات داخليه حوالين الكلام
+            border-radius:20px;//الحواف مدوره
+            box-shadow:0 0 20px #00ff88;//يعمل اضاه حوالين الساعه
+        }
+    </style>
+</head>
+<body>
+
+    <div class="clock" id="clock">
+        00:00:00
+    </div>
+
+    <script>
+
+        function updateClock(){ //الفانكشن دي وطيفتها تحدث الوقت كل ثانيه
+
+            let now = new Date();
+
+            let hours = now.getHours();//بيجب الساعه
+            let minutes = now.getMinutes();//بيجيب الدقايق
+            let seconds = now.getSeconds();//بيجيب الثواني
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            let time = hours + ":" + minutes + ":" + seconds;
+//يجمع الوقت كلو ف متغير واحد
+            document.getElementById("clock").innerHTML = time;
+        }
+
+        updateClock();
+
+        setInterval(updateClock , 1000);
+
+    </script>
+
+</body>
+</html>
